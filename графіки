@@ -1,0 +1,65 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# графіки в декартовій системі координат
+x = np.linspace(-5, 5, 400)
+y1 = x ** 2
+y2 = np.sin(x)
+
+plt.figure(figsize=(10, 6))
+plt.plot(x, y1, label='y = x²', color='blue', linestyle='--', linewidth=2)
+plt.plot(x, y2, label='y = sin(x)', color='red', linestyle='-.', linewidth=2)
+plt.title('Графіки функцій y = x² та y = sin(x)')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+# Графік у полярній системі координат
+theta = np.linspace(0, 2 * np.pi, 500)
+r = np.abs(np.sin(5 * theta))
+
+plt.figure(figsize=(6, 6))
+ax = plt.subplot(111, polar=True)
+ax.plot(theta, r, color='green')
+ax.set_title('Полярна система координат: r = |sin(5θ)|')
+plt.show()
+
+# Гістограма
+data = np.random.normal(0, 1, 1000)
+
+plt.figure(figsize=(8, 5))
+plt.hist(data, bins=30, color='purple', edgecolor='black')
+plt.title('Гістограма нормального розподілу')
+plt.xlabel('Значення')
+plt.ylabel('Частота')
+plt.grid(True)
+plt.show()
+
+# Стовпчаста діаграма
+категорії = ['Python', 'Java', 'C++', 'JS']
+значення = [40, 25, 15, 30]
+
+plt.figure(figsize=(7, 5))
+plt.bar(категорії, значення, color='orange')
+plt.title('Популярність мов програмування')
+plt.xlabel('Мова')
+plt.ylabel('Кількість користувачів (тис.)')
+plt.grid(axis='y')
+plt.show()
+
+# Комбінований графік у одному вікні
+x = np.linspace(0, 10, 100)
+y1 = np.exp(-x) * np.sin(2 * np.pi * x)
+y2 = np.exp(-x)
+
+plt.figure(figsize=(10, 6))
+plt.plot(x, y1, label='y = e^(-x) * sin(2πx)', color='blue')
+plt.plot(x, y2, label='y = e^(-x)', color='green', linestyle='--')
+plt.title('Комбінований графік затухаючих функцій')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.grid(True)
+plt.show()
